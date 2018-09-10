@@ -46,6 +46,8 @@ public:
         rs2::pipeline p;
         rs2::config c;
         c.enable_device(serial_number);
+        c.enable_stream(RS2_STREAM_COLOR, 424, 240, RS2_FORMAT_RGB8, 30);
+        c.enable_stream(RS2_STREAM_DEPTH, 424, 240, RS2_FORMAT_Z16, 30);
         // Start the pipeline with the configuration
         rs2::pipeline_profile profile = p.start(c);
         // Hold it internally
